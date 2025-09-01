@@ -96,6 +96,22 @@ function parseCSVLine(line) {
     return result;
 }
 
+function formatPrice(price) {
+    if (!price) return '';
+    
+    // Remove any existing dollar signs and trim whitespace
+    const cleanPrice = price.toString().replace(/\$/g, '').trim();
+    
+    // Parse as float and format to 2 decimal places
+    const numericPrice = parseFloat(cleanPrice);
+    
+    // Return empty string if not a valid number
+    if (isNaN(numericPrice)) return '';
+    
+    // Format with dollar sign and 2 decimal places
+    return '$' + numericPrice.toFixed(2);
+}
+
 function buildMenuHTML(menuData) {
     const menuContent = document.querySelector('.menu-content');
     if (!menuContent) return;
@@ -145,7 +161,7 @@ function buildMenuHTML(menuData) {
                     
                     const price = document.createElement('span');
                     price.className = 'price';
-                    price.textContent = item.price || '';
+                    price.textContent = formatPrice(item.price);
                     
                     menuItem.appendChild(itemName);
                     if (item.price) menuItem.appendChild(price);
@@ -185,7 +201,7 @@ function buildMenuHTML(menuData) {
                     
                     const price = document.createElement('span');
                     price.className = 'price';
-                    price.textContent = item.price || '';
+                    price.textContent = formatPrice(item.price);
                     
                     menuItem.appendChild(itemName);
                     if (item.price) menuItem.appendChild(price);
