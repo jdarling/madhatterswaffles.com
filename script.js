@@ -37,10 +37,13 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Mobile menu toggle (if needed later)
+// Mobile menu toggle
 function toggleMobileMenu() {
     const navMenu = document.querySelector('.nav-menu');
+    const toggle = document.querySelector('.nav-toggle');
+    if (!navMenu || !toggle) return;
     navMenu.classList.toggle('active');
+    toggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
 }
 
 // CSV Menu Loading
@@ -230,6 +233,24 @@ function buildMenuHTML(menuData) {
 // Add any additional interactive features here
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Mad Hatter Waffles website loaded!');
+
+    const navToggle = document.querySelector('.nav-toggle');
+    if (navToggle) {
+        navToggle.addEventListener('click', toggleMobileMenu);
+    }
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            const navMenu = document.querySelector('.nav-menu');
+            const toggle = document.querySelector('.nav-toggle');
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    });
     
     // Load menu from CSV if we're on the menu page
     if (document.querySelector('.menu-section')) {
