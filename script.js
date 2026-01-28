@@ -233,7 +233,7 @@ function buildMenuHTML(menuData) {
 // Add any additional interactive features here
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Mad Hatter Waffles website loaded!');
-
+    
     const navToggle = document.querySelector('.nav-toggle');
     if (navToggle) {
         navToggle.addEventListener('click', toggleMobileMenu);
