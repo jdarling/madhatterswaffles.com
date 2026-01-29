@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo_color.png';
 
@@ -8,6 +9,10 @@ const navItems = [
 ];
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleNavClick = () => setIsOpen(false);
+
   return (
     <header className="site-header">
       <div className="container header-inner">
@@ -15,7 +20,18 @@ function Header() {
           <img src={logo} alt="Mad Hatter's Waffles logo" className="brand-logo" />
           <span className="brand-text">Mad Hatter&apos;s Waffles</span>
         </NavLink>
-        <nav className="site-nav" aria-label="Primary">
+        <button
+          className="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <nav className={`site-nav${isOpen ? ' open' : ''}`} aria-label="Primary">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
@@ -24,6 +40,7 @@ function Header() {
                 isActive ? 'nav-link nav-link-active' : 'nav-link'
               }
               end={item.to === '/'}
+              onClick={handleNavClick}
             >
               {item.label}
             </NavLink>

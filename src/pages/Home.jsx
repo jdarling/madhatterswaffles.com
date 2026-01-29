@@ -1,4 +1,53 @@
+import { useEffect, useMemo, useState } from 'react';
+import homeImagesConfig from '../config/homeImages';
+
+function getVisibleImages(images, startIndex, count) {
+  if (images.length <= 3) {
+    return images;
+  }
+  return Array.from({ length: count }, (_, offset) => {
+    return images[(startIndex + offset) % images.length];
+  });
+}
+
 function Home() {
+  const images = homeImagesConfig.images || [];
+  const rotationMs = homeImagesConfig.rotationMs || 6000;
+  const basePath = homeImagesConfig.basePath || '/';
+  const [startIndex, setStartIndex] = useState(0);
+  const [prevStartIndex, setPrevStartIndex] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(() => {
+    if (typeof window === 'undefined') return Math.min(3, images.length);
+    return window.innerWidth < 768 ? 1 : Math.min(3, images.length);
+  });
+  const visibleImages = useMemo(
+    () => getVisibleImages(images, startIndex, visibleCount),
+    [images, startIndex, visibleCount]
+  );
+  const prevImages = useMemo(() => {
+    if (prevStartIndex === null) return [];
+    return getVisibleImages(images, prevStartIndex, visibleCount);
+  }, [images, prevStartIndex, visibleCount]);
+
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      const count = window.innerWidth < 768 ? 1 : Math.min(3, images.length);
+      setVisibleCount(count);
+    };
+    updateVisibleCount();
+    window.addEventListener('resize', updateVisibleCount);
+    return () => window.removeEventListener('resize', updateVisibleCount);
+  }, [images.length]);
+
+  useEffect(() => {
+    if (images.length <= visibleCount) return undefined;
+    const intervalId = window.setInterval(() => {
+      setPrevStartIndex(startIndex);
+      setStartIndex((prev) => (prev + 1) % images.length);
+    }, rotationMs);
+    return () => window.clearInterval(intervalId);
+  }, [images.length, rotationMs, startIndex, visibleCount]);
+
   return (
     <main>
       <section className="hero">
@@ -27,6 +76,9 @@ function Home() {
               <li>Serving Kansas City &amp; nearby</li>
             </ul>
           </div>
+        </div>
+        <div className="hero-image">
+          <img src="/images/waffle_header.avif" alt="Waffle breakfast spread" />
         </div>
       </section>
 
@@ -61,6 +113,33 @@ function Home() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="gallery">
+        <div className="container gallery-grid">
+          {Array.from({ length: visibleCount }).map((_, slotIndex) => {
+            const current = visibleImages[slotIndex];
+            const previous = prevImages[slotIndex];
+            return (
+              <div className="gallery-slot" key={`slot-${slotIndex}`}>
+                {previous && (
+                  <img
+                    className="gallery-image exit"
+                    src={`${basePath}${previous.file}`}
+                    alt={previous.alt}
+                  />
+                )}
+                {current && (
+                  <img
+                    className="gallery-image enter"
+                    src={`${basePath}${current.file}`}
+                    alt={current.alt}
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
 

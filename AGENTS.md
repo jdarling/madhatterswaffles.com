@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 - `src/` contains the React app (pages, components, styles).
-- `public/` holds static assets served as-is, including `CNAME` for GitHub Pages.
+- `public/` holds static assets served as-is, including `CNAME` for GitHub Pages and site images in `public/images/`.
 - `branding/` includes the branding guide and logo assets; you must follow `branding/branding.md` and the provided logos for any visual changes.
 - `old_site/` preserves the legacy static site for reference.
 - `CNAME` is used for GitHub Pages custom domain configuration.
