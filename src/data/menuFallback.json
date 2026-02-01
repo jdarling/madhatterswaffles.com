@@ -1,0 +1,237 @@
+{
+  "generatedAt": "2026-01-31T16:46:47.532Z",
+  "rows": [
+    {
+      "category": "Unique Flavors",
+      "item_name": "Waffle Batter Balls 5 piece",
+      "price": "4.5",
+      "description": "Comes with your choice of maple syrup or chocolate sauce",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Unique Flavors",
+      "item_name": "Waffle Batter Balls 10 piece",
+      "price": "5.99",
+      "description": "Comes with your choice of maple syrup or chocolate sauce",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Unique Flavors",
+      "item_name": "Waffle Batter Balls 20 piece",
+      "price": "9.99",
+      "description": "Comes with your choice of maple syrup or chocolate sauce",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Unique Flavors",
+      "item_name": "Waffle Sunday",
+      "price": "7.99",
+      "description": "One scoop of oat ice cream with cholate sauce over the top",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Drinks",
+      "item_name": "Pour Over Coffee",
+      "price": "1.99",
+      "description": "",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Drinks",
+      "item_name": "English Breakfast Tea",
+      "price": "1.99",
+      "description": "",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Drinks",
+      "item_name": "Earl Gray Tea",
+      "price": "1.99",
+      "description": "",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Drinks",
+      "item_name": "Mint Tea",
+      "price": "1.99",
+      "description": "",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Drinks",
+      "item_name": "Bottled Water",
+      "price": "0.99",
+      "description": "",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics",
+      "item_name": "Belgian Waffle",
+      "price": "9.99",
+      "description": "Comes with maple syrup and your choice of plant butter or real butter",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics",
+      "item_name": "Belgian Waffle and A hot pour over coffee",
+      "price": "10.99",
+      "description": "Comes with maple syrup and your choice of plant butter or real butter",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics",
+      "item_name": "The Works",
+      "price": "16.99",
+      "description": "Comes with a Belgian Waffle, Hash Browns, Sausage Links, and a drink of your choice.",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics",
+      "item_name": "Waffle Sandwich an drink",
+      "price": "7.99",
+      "description": "Comes with a half Waffle, egg, Sausage, your choice of plant or real cheese. and a drink of your choice.",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Drinks",
+      "item_name": "Hot Chocolate",
+      "price": "1.99",
+      "description": "",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Add-ons",
+      "item_name": "Maple Syrup",
+      "price": "1.5",
+      "description": "",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Add-ons",
+      "item_name": "Strawberries",
+      "price": "0.99",
+      "description": "",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Add-ons",
+      "item_name": "Chocolate Sauce",
+      "price": "0.99",
+      "description": "",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Add-ons",
+      "item_name": "Sausage Links",
+      "price": "3.99",
+      "description": "",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Add-ons",
+      "item_name": "Hash Browns",
+      "price": "4.99",
+      "description": "",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Add-ons",
+      "item_name": "Egg",
+      "price": "0.99",
+      "description": "",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Add-ons",
+      "item_name": "Oat Ice Cream",
+      "price": "3.99",
+      "description": "",
+      "column": "2",
+      "special_notes": ""
+    },
+    {
+      "category": "Add-ons",
+      "item_name": "",
+      "price": "",
+      "description": "",
+      "column": "2",
+      "special_notes": "Allergies let us know we do gluten-free, dairy-free, soy-free, and nut-free"
+    },
+    {
+      "category": "Classics",
+      "item_name": "Sausage Waffle Sandwich ",
+      "price": "6.99",
+      "description": "Comes with a half waffle, Sausage, egg, and your choice of plant or real cheese.",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics ",
+      "item_name": "Bacon Waffles Sandwich ",
+      "price": "6.99",
+      "description": "Comes with a half waffle, Bacon, egg, and your choice of plant or real cheese.",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics ",
+      "item_name": "BLT on a Waffle",
+      "price": "6.99",
+      "description": "Comes with Bacon, Lettuce, Tomato. and mayo. on a half Waffle",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics ",
+      "item_name": "Sausage Breakfast Bowl",
+      "price": "7.99",
+      "description": "Comes with Hashbrowns, Sausage, egg, and your choice of plant or real cheese. All mixed together.",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics ",
+      "item_name": "Bacon Breakfast bowl",
+      "price": "7.99",
+      "description": "Comes with Hashbrowns, Bacon, egg, and your choice of plant or real cheese. All mixed together.",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Classics ",
+      "item_name": "Waffle balls Breakfast Bowls",
+      "price": "9.99",
+      "description": "Comes with 5 Waffle Balls, Hashbrowns, Sausage or Bacon, egg, and your choice of plant or real cheese. All mixed together.",
+      "column": "1",
+      "special_notes": ""
+    },
+    {
+      "category": "Drinks",
+      "item_name": "Oj",
+      "price": "1.99",
+      "description": "",
+      "column": "1",
+      "special_notes": ""
+    }
+  ]
+}

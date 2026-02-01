@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Papa from 'papaparse';
 import dataSources from '../config/dataSources';
+import menuFallback from '../data/menuFallback.json';
 
 const emptyState = {
   column1: new Map(),
@@ -45,17 +46,41 @@ function mergeColumns(grouped) {
 }
 
 function Menu() {
-  const [menuRows, setMenuRows] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const fallbackRows = Array.isArray(menuFallback?.rows) ? menuFallback.rows : [];
+  const fallbackDate = menuFallback?.generatedAt || '';
+  const fallbackDateLabel = fallbackDate
+    ? new Date(fallbackDate).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : '';
+  const isPrerender =
+    typeof window !== 'undefined' && window.__PRERENDER__ && window.__PRERENDER__.active;
+  const [menuRows, setMenuRows] = useState(() => fallbackRows);
+  const [loading, setLoading] = useState(fallbackRows.length === 0);
   const [error, setError] = useState('');
+  const [isFallback, setIsFallback] = useState(fallbackRows.length > 0);
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.innerWidth <= 960;
   });
 
   useEffect(() => {
+    setMenuRows(fallbackRows);
+  }, [fallbackRows]);
+
+  useEffect(() => {
     let active = true;
-    setLoading(true);
+    if (isPrerender) {
+      setLoading(false);
+      return () => {
+        active = false;
+      };
+    }
+    if (fallbackRows.length === 0) {
+      setLoading(true);
+    }
 
     Papa.parse(dataSources.menuCsvUrl, {
       download: true,
@@ -65,11 +90,14 @@ function Menu() {
         if (!active) return;
         const rows = normalizeMenuRows(results.data || []);
         setMenuRows(rows);
+        setError('');
+        setIsFallback(false);
         setLoading(false);
       },
       error: (err) => {
         if (!active) return;
         setError(err?.message || 'Unable to load the menu right now.');
+        setIsFallback(fallbackRows.length > 0);
         setLoading(false);
       },
     });
@@ -176,6 +204,12 @@ function Menu() {
       </div>
     ));
 
+  const showLoading = loading && menuRows.length === 0;
+  const showFallbackMessage = Boolean(error && isFallback);
+  const fallbackMessage = fallbackDateLabel
+    ? `We couldn't load the live menu. Showing the menu as of ${fallbackDateLabel}.`
+    : "We couldn't load the live menu.";
+
   return (
     <main>
       <section className="page-hero page-hero-wide">
@@ -190,9 +224,10 @@ function Menu() {
 
       <section className="menu-section">
         <div className="container">
-          {loading && <p className="status">Loading menu...</p>}
-          {error && <p className="status error">{error}</p>}
-          {!loading && !error && (
+          {showLoading && <p className="status">Loading menu...</p>}
+          {showFallbackMessage && <p className="status">{fallbackMessage}</p>}
+          {error && !isFallback && <p className="status error">{error}</p>}
+          {menuRows.length > 0 && (
             <>
               {isMobile ? (
                 <div className="menu-grid single">

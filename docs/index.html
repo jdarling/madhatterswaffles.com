@@ -9,10 +9,19 @@
       rel="stylesheet"
     />
     <title>Mad Hatter's Waffles</title>
-    <script type="module" crossorigin src="/assets/index-CJPAQNdI.js"></script>
+    <script>
+      (function () {
+        var redirect = sessionStorage.getItem('spa-redirect');
+        if (redirect) {
+          sessionStorage.removeItem('spa-redirect');
+          history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-XSzk8WZo.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D97JqT4Z.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><link rel="preload" as="image" href="/logo_color.png"/><link rel="preload" as="image" href="/images/waffle_header.avif"/><link rel="preload" as="image" href="/images/waffle_right.avif"/><link rel="preload" as="image" href="/images/waffle_closeup.jpg"/><div class="app-shell"><header class="site-header"><div class="container header-inner"><a aria-label="Mad Hatter&#x27;s Waffles home" aria-current="page" class="brand active" href="/" data-discover="true"><img src="/logo_color.png" alt="Mad Hatter&#x27;s Waffles logo" class="brand-logo"/><span class="brand-text">Mad Hatter&#x27;s Waffles</span></a><button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button><nav class="site-nav" aria-label="Primary"><a aria-current="page" class="nav-link nav-link-active" href="/" data-discover="true">Home</a><a class="nav-link" href="/menu" data-discover="true">Menu</a><a class="nav-link" href="/schedule" data-discover="true">Find Us</a></nav></div></header><main><section class="hero"><div class="container hero-inner"><div class="hero-copy"><p class="eyebrow">Kansas City&#x27;s roaming waffle kitchen</p><h1>Warm waffles, bold flavors, and a little bit of wonder.</h1><p class="hero-lede">Mad Hatter&#x27;s Waffles brings sweet and savory creations to the streets. Find us each week, or order ahead for pickup.</p><div class="hero-actions"><a class="btn primary" href="/menu" data-discover="true">See the menu</a><a class="btn outline" href="/schedule" data-discover="true">Find the truck</a></div></div><div class="hero-card"><h2>Today&#x27;s quick info</h2><ul><li>Plant-based and classic options</li><li>Customizable add-ons</li><li>Serving Kansas City &amp; nearby</li></ul></div></div><div class="hero-image"><img src="/images/waffle_header.avif" alt="Waffle breakfast spread"/></div></section><section class="mission"><div class="container mission-grid"><div><h2>Our mission</h2><p>We craft waffles that feel like a celebration. Every stop is a chance to share comfort, creativity, and a little magic with the community.</p></div><div class="mission-card"><h3>Order &amp; connect</h3><p>Follow us for weekly stops, special events, and menu drops. Online ordering is available when the truck is open.</p><div class="link-grid"><a href="https://cash.app/order/$madhatterswaffles" target="_blank" rel="noreferrer">Online ordering</a><a href="https://www.doordash.com/store/mad-hatters-waffles-llc-kansas-city-36849887/82792354/" target="_blank" rel="noreferrer">DoorDash</a><a href="https://www.instagram.com/madhatterswaffles/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.facebook.com/madhatterswaffles" target="_blank" rel="noreferrer">Facebook</a></div></div></div></section><section class="gallery"><div class="container gallery-grid"><div class="gallery-slot"><img class="gallery-image enter" src="/images/waffle_right.avif" alt="Waffle with whipped topping"/></div><div class="gallery-slot"><img class="gallery-image enter" src="/images/waffle_closeup.jpg" alt="Close-up of waffle with syrup"/></div></div></section><section class="contact"><div class="container contact-grid"><div><h2>Contact</h2><p>Email us for events, catering, or collaborations.</p></div><div class="contact-card"><p class="contact-label">Email</p><a href="mailto:madhatterswaffles@gmail.com">madhatterswaffles@gmail.com</a><p class="contact-label">Based in</p><p>Kansas City, MO</p></div></div></section></main><footer class="site-footer"><div class="container footer-inner"><p>© <!-- -->2026<!-- --> Mad Hatter&#x27;s Waffles</p></div></footer></div></div>
   </body>
 </html>

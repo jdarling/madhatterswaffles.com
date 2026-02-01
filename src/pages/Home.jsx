@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router';
 import homeImagesConfig from '../config/homeImages';
 
 function getVisibleImages(images, startIndex, count) {
@@ -60,12 +61,12 @@ function Home() {
               streets. Find us each week, or order ahead for pickup.
             </p>
             <div className="hero-actions">
-              <a className="btn primary" href="#/menu">
+              <Link className="btn primary" to="/menu">
                 See the menu
-              </a>
-              <a className="btn outline" href="#/schedule">
+              </Link>
+              <Link className="btn outline" to="/schedule">
                 Find the truck
-              </a>
+              </Link>
             </div>
           </div>
           <div className="hero-card">

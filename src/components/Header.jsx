@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo_color.png';
+import { NavLink } from 'react-router';
 
 const navItems = [
   { to: '/', label: 'Home' },
@@ -17,7 +16,7 @@ function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <NavLink to="/" className="brand" aria-label="Mad Hatter's Waffles home">
-          <img src={logo} alt="Mad Hatter's Waffles logo" className="brand-logo" />
+          <img src="/logo_color.png" alt="Mad Hatter's Waffles logo" className="brand-logo" />
           <span className="brand-text">Mad Hatter&apos;s Waffles</span>
         </NavLink>
         <button
